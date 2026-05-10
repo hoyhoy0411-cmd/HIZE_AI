@@ -27,7 +27,7 @@ def load_data():
 def create_dashboard():
     df = load_data()
     
-    st.markdown("## 📊 품질관리 KPI 대시보드")
+    st.markdown("##  품질관리 KPI 대시보드")
     st.markdown("---")
 
     # ------------------------------------------
@@ -36,7 +36,7 @@ def create_dashboard():
     col1, col2 = st.columns(2)
     
     with col1:
-        st.markdown("##### 📦 월별 부품 출하(생산)량")
+        st.markdown("#####  월별 부품 출하(생산)량")
         with st.container(border=True):
             if not df.empty:
                 prod_df = df.groupby('YearMonth')['LN'].nunique().reset_index()
@@ -47,7 +47,7 @@ def create_dashboard():
                 st.plotly_chart(fig_prod, use_container_width=True)
 
     with col2:
-        st.markdown("##### 📉 월별 주요 결함 평균 발생 추이")
+        st.markdown("#####  월별 주요 결함 평균 발생 추이")
         with st.container(border=True):
             if not df.empty:
                 target_cols = ['scratch', 'cleaning', 'sealant', 'Install_error']
@@ -68,7 +68,7 @@ def create_dashboard():
     col3, col4 = st.columns(2)
     
     with col3:
-        st.markdown("##### 🌡️ 공정별 월별 평균 온도 추이")
+        st.markdown("#####  공정별 월별 평균 온도 추이")
         with st.container(border=True):
             if not df.empty:
                 temp_cols = ['Temp_FAJ', 'Temp_Install', 'Temp_Sealant', 'Temp_Hole']
@@ -79,7 +79,7 @@ def create_dashboard():
                 st.plotly_chart(fig_temp, use_container_width=True)
 
     with col4:
-        st.markdown("##### 💧 공정별 월별 평균 습도 추이")
+        st.markdown("#####  공정별 월별 평균 습도 추이")
         with st.container(border=True):
             if not df.empty:
                 rh_cols = ['RH_FAJ', 'RH_Install', 'RH_Silent', 'RH_Hole']
@@ -94,7 +94,7 @@ def create_dashboard():
     # ------------------------------------------
     # Row 3: 월별 공정별 작업자 작업 건수
     # ------------------------------------------
-    st.markdown("### 👥 월별 공정별 작업자 작업 건수")
+    st.markdown("###  월별 공정별 작업자 작업 건수")
     
     worker_cols = ['M_FAJ', 'M_Install', 'M_Sealant', 'M_Hole', 'QI']
     process_names = {'M_FAJ': 'FAJ 공정', 'M_Install': 'Install 공정', 'M_Sealant': 'Sealant 공정', 'M_Hole': 'Hole 공정', 'QI': '최종 품질검사(QI)'}
@@ -119,7 +119,7 @@ def create_dashboard():
     # ------------------------------------------
     # Row 4: 작업자별 평균 작업 1개당 불량 발생 건수
     # ------------------------------------------
-    st.markdown("### ⚠️ 작업자별 평균 작업 1개당 불량 발생 건수")
+    st.markdown("###  작업자별 평균 작업 1개당 불량 발생 건수")
     
     with st.container(border=True):
         if not df.empty:
