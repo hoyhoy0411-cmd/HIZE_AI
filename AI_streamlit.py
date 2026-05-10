@@ -108,7 +108,6 @@ def create_ai_simulator():
 
     # --- 좌측 영역 ---
     with col_main:
-        st.markdown("##  AI 결함/품질 시뮬레이터")
         st.markdown("---")
 
         with st.container(border=True):
