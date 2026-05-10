@@ -5,5 +5,4 @@ openpyxl
 joblib
 scikit-learn
 xgboost
-randomforest
 catboost
