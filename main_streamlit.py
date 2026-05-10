@@ -7,7 +7,7 @@ from AI_streamlit import create_ai_simulator     # 파일명 변경 반영
 # ==========================================
 st.set_page_config(
     page_title='하이즈항공 품질 시스템',
-    page_icon='✈️',
+    page_icon='',
     layout='wide',
     initial_sidebar_state='expanded'
 )
@@ -27,14 +27,14 @@ def navigate_to(page_name):
 # ==========================================
 def sidebar_navigation():
     with st.sidebar:
-        st.title('✈️ 하이즈항공 플랫폼')
+        st.title(' 하이즈항공 플랫폼')
         st.markdown('**AI 품질 통합 플랫폼**')
         st.divider() # 가로줄
         
         # 메뉴 버튼들
-        st.button('🏠 홈 화면', on_click=navigate_to, args=('홈 화면',), use_container_width=True)
-        st.button('📊 KPI 대시보드', on_click=navigate_to, args=('KPI 대시보드',), use_container_width=True)
-        st.button('🧠 AI 시뮬레이터', on_click=navigate_to, args=('AI 시뮬레이터',), use_container_width=True)
+        st.button(' 홈 화면', on_click=navigate_to, args=('홈 화면',), use_container_width=True)
+        st.button(' KPI 대시보드', on_click=navigate_to, args=('KPI 대시보드',), use_container_width=True)
+        st.button(' AI 시뮬레이터', on_click=navigate_to, args=('AI 시뮬레이터',), use_container_width=True)
 
 # ==========================================
 # 3. 라우팅 (페이지 분기)
@@ -63,15 +63,15 @@ def main():
         # 버튼을 가운데로 몰기 위해 빈 컬럼 활용
         col1, col2, col3, col4 = st.columns([1, 2, 2, 1])
         with col2:
-            st.button('📊 KPI 대시보드 바로가기', on_click=navigate_to, args=('KPI 대시보드',), type='primary', use_container_width=True)
+            st.button(' KPI 대시보드 바로가기', on_click=navigate_to, args=('KPI 대시보드',), type='primary', use_container_width=True)
         with col3:
-            st.button('🧠 AI 시뮬레이터 바로가기', on_click=navigate_to, args=('AI 시뮬레이터',), type='secondary', use_container_width=True)
+            st.button(' AI 시뮬레이터 바로가기', on_click=navigate_to, args=('AI 시뮬레이터',), type='secondary', use_container_width=True)
 
     # ------------------------------------
     # 대시보드 화면
     # ------------------------------------
     elif st.session_state['current_page'] == 'KPI 대시보드':
-        st.header('📊 KPI 대시보드')
+        st.header(' KPI 대시보드')
         st.divider()
         create_dashboard()
 
@@ -79,7 +79,7 @@ def main():
     # AI 시뮬레이터 화면
     # ------------------------------------
     elif st.session_state['current_page'] == 'AI 시뮬레이터':
-        st.header('🧠 AI 예측 솔루션')
+        st.header(' AI 예측 솔루션')
         st.divider()
         create_ai_simulator()
 
