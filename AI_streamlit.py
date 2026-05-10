@@ -108,8 +108,6 @@ def create_ai_simulator():
 
     # --- 좌측 영역 ---
     with col_main:
-        st.markdown("---")
-
         with st.container(border=True):
             st.markdown("#### 1. 시뮬레이션 모델 선택")
             c1, c2 = st.columns(2)
