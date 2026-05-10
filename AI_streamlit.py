@@ -86,8 +86,11 @@ def get_filtered_models(directory, model_type):
 # 3. 메인 UI 구성
 # ==========================================
 def create_ai_simulator():
-    base_dir = '.'
+    # [수정] 절대 경로(C:\...) 대신 현재 실행 경로('.')를 사용합니다.
+    base_dir = '.' 
     data_path = os.path.join(base_dir, 'aircraft_parts_virtual_data_v3.xlsx')
+    
+    # 모델 폴더 경로도 현재 폴더 기준으로 설정
     class_model_dir = os.path.join(base_dir, 'saved_model_class')
     reg_model_dir = os.path.join(base_dir, 'saved_models_reg')
     
