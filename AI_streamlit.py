@@ -108,7 +108,7 @@ def create_ai_simulator():
 
     # --- 좌측 영역 ---
     with col_main:
-        st.markdown("## 🧠 AI 결함/품질 시뮬레이터")
+        st.markdown("##  AI 결함/품질 시뮬레이터")
         st.markdown("---")
 
         with st.container(border=True):
@@ -135,16 +135,16 @@ def create_ai_simulator():
             for i, col in enumerate(REQUIRED_FEATURES):
                 with input_cols[i % 4]:
                     if col in WORKER_MAP:
-                        state_inputs[col] = st.selectbox(f'👤 {col}', options=WORKER_MAP[col])
+                        state_inputs[col] = st.selectbox(f' {col}', options=WORKER_MAP[col])
                     elif col in ['Month', 'Hour']:
                         val = feature_stats.get(col, {'default': 0})['default']
-                        state_inputs[col] = st.number_input(f'🕒 {col}', value=int(val), step=1)
+                        state_inputs[col] = st.number_input(f' {col}', value=int(val), step=1)
                     else:
                         stat = feature_stats.get(col, {'default': 0.0})
                         state_inputs[col] = st.number_input(f'{col}', value=float(stat['default']), format="%.2f")
 
         st.markdown("<br>", unsafe_allow_html=True)
-        run_btn = st.button("🚀 시뮬레이션 실행", type="primary", use_container_width=True)
+        run_btn = st.button(" 시뮬레이션 실행", type="primary", use_container_width=True)
         
         # --- 시뮬레이션 실행 로직 ---
         if run_btn:
@@ -166,18 +166,18 @@ def create_ai_simulator():
                     
                     # 결과 출력
                     with st.container(border=True):
-                        st.markdown("### 🎯 예측 결과")
+                        st.markdown("###  예측 결과")
                         if m_type_key == 'class':
                             if prediction == 0:
-                                st.success("🟢 정상 (Normal)")
+                                st.success(" 정상 (Normal)")
                             else:
-                                st.error("🔴 불량 (Defect)")
+                                st.error(" 불량 (Defect)")
                         else:
-                            st.info(f"🔵 예측 수치: **{prediction:.4f}**")
+                            st.info(f" 예측 수치: **{prediction:.4f}**")
                     
                     # 영향 인자(Feature Importance) 분석 레이더 차트
                     if hasattr(model, 'feature_importances_'):
-                        st.markdown("#### 🔍 영향 인자 분석")
+                        st.markdown("####  영향 인자 분석")
                         imp = model.feature_importances_
                         imp_df = pd.DataFrame({'Feature': REQUIRED_FEATURES, 'Importance': imp}).sort_values('Importance', ascending=False).head(10)
                         
@@ -194,7 +194,7 @@ def create_ai_simulator():
 
     # --- 우측 영역 (평가 지표) ---
     with col_sidebar:
-        st.markdown("### 📊 모델 평가 지표")
+        st.markdown("###  모델 평가 지표")
         
         with st.container(border=True):
             if not m_file or m_file == "모델 없음":
